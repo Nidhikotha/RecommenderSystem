@@ -43,12 +43,12 @@ def userfitness(request):
         wt=request.session['weight']
         print('age = ',ag ,' weight = ',wt)
         #qs=excercisesdata.objects.get(age=ag,weight=wt)
-        qs=excercisesdata.objects.get(age=ag,weight=wt)
+        qs=excercisesdata.objects.filter(age=ag,weight=wt)
         
         print(qs)
         for x in qs:
             print(x.diet)
-            return render(request,"user/userfitness.html",{"message":qs})
+        return render(request,"user/userfitness.html",{"message":qs})
 
 
 
